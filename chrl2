@@ -1,0 +1,34 @@
+// chef and string chrl2, january lunchtime
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std;
+int cchar , hchar, echar;
+string input;
+int main(){
+	char temp;
+	int total;
+	int len;
+	while(cin>>input)
+	{
+	total=echar=cchar=hchar=0;
+	len= input.length();
+	for(int i =0 ;i<len;i++)
+	{
+	temp=input.at(i);
+	switch(temp){
+	case 'C':cchar++;
+			break;
+	case 'H':if(hchar<cchar)hchar++;
+			break;
+	case 'E':if(echar<hchar)echar++;
+			break;
+	case 'F':if(cchar && hchar && echar)
+				{cchar--;hchar--;echar--;total++;}
+			break;
+	}
+	
+	}
+	cout<<total<<endl;
+	}
+}
